@@ -20,9 +20,9 @@ RUN apt-get update && apt-get install -y openssl curl openssh-client sudo shelli
     ln -sf '/etc/shellinabox/options-enabled/01+Color Terminal.css' \
       /etc/shellinabox/options-enabled/01+Color-Terminal.css
 
-RUN /usr/sbin/groupadd -g ${SIAB_GROUPID} ${SIAB_GROUP} && \
-    /usr/sbin/useradd -u ${SIAB_USERID} -g ${SIAB_GROUPID} -s ${SIAB_SHELL} -d ${SIAB_HOME} -m -G sudo ${SIAB_USER} && \
-    echo "${SIAB_USER}:${SIAB_PASSWORD}" | /usr/sbin/chpasswd && \
+RUN /usr/sbin/groupadd -g $SIAB_GROUPID $SIAB_GROUP && \
+    /usr/sbin/useradd -u $SIAB_USERID -g $SIAB_GROUPID -s $SIAB_SHELL -d $SIAB_HOME -m -G sudo $SIAB_USER && \
+    echo "$SIAB_USER:$SIAB_PASSWORD" | /usr/sbin/chpasswd && \
     unset SIAB_PASSWORD
 
 EXPOSE $PORT
