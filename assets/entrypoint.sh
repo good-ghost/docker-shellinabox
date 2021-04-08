@@ -3,7 +3,7 @@
 set -e
 
 echo "Starting container .."
-COMMAND="/usr/bin/shellinaboxd --debug --no-beep --disable-peer-check -u shellinabox -g shellinabox -c /var/lib/shellinabox -p ${PORT} --user-css ${SIAB_USERCSS}"
+COMMAND="/usr/bin/shellinaboxd --debug --no-beep --disable-peer-check -u ${SIAB_USER} -g ${SIAB_GROUP} -c /var/lib/shellinabox -p ${PORT} --user-css ${SIAB_USERCSS}"
 
 if [ "$@" = "shellinabox" ]; then
 	echo "Executing: ${COMMAND}"
