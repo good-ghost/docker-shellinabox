@@ -10,6 +10,8 @@ ENV PORT=4200 \
     SIAB_SHELL=/bin/bash \
     SIAB_HOME=/home/guest
 
+RUN /usr/sbin/groupadd -r shellinabox && /usr/sbin/useradd -r -g shellinabox shellinabox
+
 RUN apt-get update && apt-get install -y openssl curl openssh-client sudo shellinabox && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
